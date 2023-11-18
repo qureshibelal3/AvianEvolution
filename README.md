@@ -32,8 +32,10 @@ To align the Cytochrome b gene sequences, the MAFFT tool was used. The following
 
 ```bash
 mafft --auto data/*.fasta > alignment.fasta
+```
 
 - `phylogenetic_tree.R`: R script for constructing the phylogenetic tree.
+
   
 ## Dataset Commands
 - To download Cytochrome b gene sequences: `./download_data.sh`
