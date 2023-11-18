@@ -11,6 +11,7 @@ This project explores the evolutionary relationships among different bird specie
 
 ## Scripts
 - `download_data.sh`: Script to download Cytochrome b gene sequences.
+```  
 #!/bin/bash
 
 accession_numbers=("AF090338.1" "GU908131.1" "AF197835.1" "KT946691.1" "EU009397.1" "EF532935.1" "KT340631.1" "JQ864490.1" "MN356192.1" "KJ909190.1")
@@ -25,7 +26,7 @@ do
 done
 
 echo "Data download complete!"
-
+```
 - alignment: # Multiple Sequence Alignment (MSA)
 
 To align the Cytochrome b gene sequences, the MAFFT tool was used. The following command was executed in the terminal:
