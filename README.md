@@ -17,15 +17,15 @@ This project explores the evolutionary relationships among different bird specie
 # List of species and their respective URLs
 species_urls=(
   "https://ftp.ensembl.org/pub/release-110/fasta/struthio_camelus_australis/dna/Struthio_camelus_australis.ASM68674v1.dna.toplevel.fa.gz"
-  "https://ftp.ensembl.org/pub/release-110/fasta/lonchura_striata_domestica/dna/Lonchura_striata_domestica.Finch_dove_1.0.dna.toplevel.fa.gz"
-  "https://ftp.ensembl.org/pub/release-110/fasta/cyanistes_caeruleus/dna/Cyanistes_caeruleus.Cyanistes_caeruleus_1.0.dna.toplevel.fa.gz"
-  "https://ftp.ensembl.org/pub/release-110/fasta/lepidothrix_coronata/dna/Lepidothrix_coronata.L_coronata_1.0.dna.toplevel.fa.gz"
-  "https://ftp.ensembl.org/pub/release-110/fasta/melopsittacus_undulatus/dna/Melopsittacus_undulatus.MelUnd1_0.dna.toplevel.fa.gz"
+  "https://ftp.ensembl.org/pub/release-110/fasta/lonchura_striata_domestica/dna/Lonchura_striata_domestica.LonStrDom1.dna.toplevel.fa.gz"
+  "https://ftp.ensembl.org/pub/release-110/fasta/cyanistes_caeruleus/dna/Cyanistes_caeruleus.cyaCae2.dna.toplevel.fa.gz"
+  "https://ftp.ensembl.org/pub/release-110/fasta/lepidothrix_coronata/dna/Lepidothrix_coronata.Lepidothrix_coronata-1.0.dna.toplevel.fa.gz"
+  "https://ftp.ensembl.org/pub/release-110/fasta/melopsittacus_undulatus/dna/Melopsittacus_undulatus.bMelUnd1.mat.Z.dna.toplevel.fa.gz"
   "https://ftp.ensembl.org/pub/release-110/fasta/athene_cunicularia/dna/Athene_cunicularia.athCun1.dna.toplevel.fa.gz"
-  "https://ftp.ensembl.org/pub/release-110/fasta/gallus_gallus/dna/Gallus_gallus.GRCg6a.dna.toplevel.fa.gz"
-  "https://ftp.ensembl.org/pub/release-110/fasta/ficedula_albicollis/dna/Ficedula_albicollis.FicAlb_1.0.dna.toplevel.fa.gz"
-  "https://ftp.ensembl.org/pub/release-110/fasta/serinus_canaria/dna/Serinus_canaria.SerCan1.0.dna.toplevel.fa.gz"
-  "https://ftp.ensembl.org/pub/release-110/fasta/anas_platyrhynchos_platyrhynchos/dna/Anas_platyrhynchos_platyrhynchos.BGI_duck_1.0.dna.toplevel.fa.gz"
+  "https://ftp.ensembl.org/pub/release-110/fasta/gallus_gallus/dna/Gallus_gallus.bGalGal1.mat.broiler.GRCg7b.dna.toplevel.fa.gz"
+  "https://ftp.ensembl.org/pub/release-110/fasta/ficedula_albicollis/dna/Ficedula_albicollis.FicAlb1.5.dna.toplevel.fa.gz"
+  "https://ftp.ensembl.org/pub/release-110/fasta/serinus_canaria/dna/Serinus_canaria.SCA1.dna.toplevel.fa.gz"
+  "https://ftp.ensembl.org/pub/release-110/fasta/anas_platyrhynchos_platyrhynchos/dna/Anas_platyrhynchos_platyrhynchos.CAU_duck1.0.dna.toplevel.fa.gz"
 )
 
 
