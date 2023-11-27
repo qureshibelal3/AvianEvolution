@@ -10,7 +10,6 @@ This project explores the evolutionary relationships among different bird specie
 - **Phylogenetic Tree Construction:** Utilized the `ape` package in R to construct a family tree.
 
 ## Scripts
-- `download_bird_data.sh`: Script to download bird genome sequences.
 ```
 #!/bin/bash
 
@@ -109,6 +108,17 @@ mafft --auto Melopsittacus_undulatus.bMelUnd1.mat.Z.dna.toplevel_unwrap.fa > Mel
 mafft --auto Serinus_canaria.SCA1.dna.toplevel_unwrap.fa > Serinus_canaria.SCA1.dna.toplevel_aligned.fa
 
 mafft --auto Struthio_camelus_australis.ASM69896v1.dna.toplevel_unwrap.fa > Struthio_camelus_australis.ASM69896v1.dna.toplevel_aligned.fa
+```
+
+IQTREE command: 
+
+```
+cd bird2
+
+# Run iqtree for all species
+for file in *aligned.fa; do
+  iqtree -s "$file" -m LG -bb 1000 -pre "${file%.*}_tree"
+done
 ```
 
 - `phylogenetic_tree.R`: R script for constructing the phylogenetic tree.
