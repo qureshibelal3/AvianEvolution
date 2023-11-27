@@ -89,15 +89,33 @@ awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}
 
 To align t gene sequences, the MAFFT tool was used. The following command was executed in the terminal:
 
-```bash
-mafft --auto data/*.fasta > alignment.fasta
+```
+mafft --auto Anas_platyrhynchos_platyrhynchos.CAU_duck1.0.dna.toplevel_unwrap.fa > Anas_platyrhynchos_platyrhynchos.CAU_duck1.0.dna.toplevel_aligned.fa
+
+mafft --auto Athene_cunicularia.athCun1.dna.toplevel_unwrap.fa > Athene_cunicularia.athCun1.dna.toplevel_aligned.fa
+
+mafft --auto Cyanistes_caeruleus.cyaCae2.dna.toplevel_unwrap.fa > Cyanistes_caeruleus.cyaCae2.dna.toplevel_aligned.fa
+
+mafft --auto Ficedula_albicollis.FicAlb1.5.dna.toplevel_unwrap.fa > Ficedula_albicollis.FicAlb1.5.dna.toplevel_aligned.fa
+
+mafft --auto Gallus_gallus.bGalGal1.mat.broiler.GRCg7b.dna.toplevel_unwrap.fa > Gallus_gallus.bGalGal1.mat.broiler.GRCg7b.dna.toplevel_aligned.fa
+
+mafft --auto Lepidothrix_coronata.Lepidothrix_coronata-1.0.dna.toplevel_unwrap.fa > Lepidothrix_coronata.Lepidothrix_coronata-1.0.dna.toplevel_aligned.fa
+
+mafft --auto Lonchura_striata_domestica.LonStrDom1.dna.toplevel_unwrap.fa > Lonchura_striata_domestica.LonStrDom1.dna.toplevel_aligned.fa
+
+mafft --auto Melopsittacus_undulatus.bMelUnd1.mat.Z.dna.toplevel_unwrap.fa > Melopsittacus_undulatus.bMelUnd1.mat.Z.dna.toplevel_aligned.fa
+
+mafft --auto Serinus_canaria.SCA1.dna.toplevel_unwrap.fa > Serinus_canaria.SCA1.dna.toplevel_aligned.fa
+
+mafft --auto Struthio_camelus_australis.ASM69896v1.dna.toplevel_unwrap.fa > Struthio_camelus_australis.ASM69896v1.dna.toplevel_aligned.fa
 ```
 
 - `phylogenetic_tree.R`: R script for constructing the phylogenetic tree.
 
   
 ## Dataset Commands
-- To download Cytochrome b gene sequences: `./download_data.sh`
+- `
 
 ## Final Products
 
