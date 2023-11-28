@@ -37,27 +37,23 @@ esearch -db nucleotide -query 'Struthio camelus CYTB' | efetch -format fasta > S
 To align cytb gene sequences, the MAFFT tool was used. The following command was executed in the terminal:
 
 ```
-mafft --auto Anas_platyrhynchos_cytb_selected.fasta > Anas_platyrhynchos_cytb_selected_aligned.fasta
-mafft --auto Gallus_gallus_cytb_selected.fasta > Gallus_gallus_cytb_selected_aligned.fasta
-mafft --auto Serinus_canaria_cytb_selected.fasta > Serinus_canaria_cytb_selected_aligned.fasta
-mafft --auto Ficedula_albicollis_cytb_selected.fasta > Ficedula_albicollis_cytb_selected_aligned.fasta
-mafft --auto Struthio_camelus_cytb_selected.fasta > Struthio_camelus_cytb_selected_aligned.fasta
-
-```
-
-IQTREE command: 
-
-```
-cd bird3
-
 cat Anas_platyrhynchos_cytb_selected.fasta \
     Ficedula_albicollis_cytb_selected.fasta \
     Gallus_gallus_cytb_selected.fasta \
     Serinus_canaria_cytb_selected.fasta \
     Struthio_camelus_cytb_selected.fasta > all_cytb.fasta
 
+mafft --auto all_cytb.fasta > all_cytb_aligned.fasta
 
-iqtree -s all_cytb_aligned.fasta -m LG -bb 1000 -pre cytb_tree
+
+```
+IQTREE command: 
+
+```
+
+
+iqtree -s all_cytb_aligned.fasta -m GTR -bb 1000 -pre cytb_tree
+
 
 
 ```
