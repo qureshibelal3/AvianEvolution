@@ -61,12 +61,23 @@ iqtree -s all_cytb_aligned.fasta -m LG -bb 1000 -pre cytb_tree
 
 
 ```
+R script:
+```
+library(ggtree)
 
-- `phylogenetic_tree.R`: R script for constructing the phylogenetic tree.
+# Paste the content of your "contree" file within the quotes
+shh_tree <- "(Anas_platyrhyncos:0.7919033481,((Ficedulla_albicollis:0.0670936537,Serinus_canaria:0.0893013987)72:0.0546753501,Gallus_gallus:0.1175383905)46:0.0251519198,Struthio_camelus:0.0795765884);"
 
+# Read the tree
+shh_tree <- read.tree(text=shh_tree)
+
+# Plot the tree with species names
+ggtree(shh_tree) + 
+  geom_tiplab(geom="text", hjust=1, offset=0.5, size=5) +
+  theme_tree2()
+
+```
   
-## Dataset Commands
-- ==`
 
 ## Final Products
 
