@@ -2,10 +2,10 @@
 Bionformatics final project
 
 ## Overview
-This project explores the evolutionary relationships among different bird species 
+This project explores the evolutionary relationships among different bird species using CYTB gene sequences
 
 ## Progress
-- **Data Collection:** Collected whole genome bird sequences
+- **Data Collection:** Collected CYTB gene bird sequences
 - **Alignment:** Used `mafft` for aligning the sequences. IQTREE to generate the tree 
 - **Phylogenetic Tree Construction:** Utilized the `ape` package in R to construct a family tree.
 
@@ -14,62 +14,52 @@ This project explores the evolutionary relationships among different bird specie
 #!/bin/bash
 
 
-# Download and unzip for each species
-wget -O Anas_platyrhynchos_platyrhynchos.CAU_duck1.0.dna.toplevel.fa.gz https://ftp.ensembl.org/pub/release-110/fasta/anas_platyrhynchos_platyrhynchos/dna/Anas_platyrhynchos_platyrhynchos.CAU_duck1.0.dna.toplevel.fa.gz
-gunzip Anas_platyrhynchos_platyrhynchos.CAU_duck1.0.dna.toplevel.fa.gz
+# Anas platyrhynchos
+esearch -db nucleotide -query 'Anas platyrhynchos CYTB' | efetch -format fasta > Anas_platyrhynchos_cytb.fasta
 
-wget -O Cyanistes_caeruleus.cyaCae2.dna.toplevel.fa.gz https://ftp.ensembl.org/pub/release-110/fasta/cyanistes_caeruleus/dna/Cyanistes_caeruleus.cyaCae2.dna.toplevel.fa.gz
-gunzip Cyanistes_caeruleus.cyaCae2.dna.toplevel.fa.gz
+# Ficedula albicollis
+esearch -db nucleotide -query 'Ficedula albicollis CYTB' | efetch -format fasta > Ficedula_albicollis_cytb.fasta
 
-wget -O Ficedula_albicollis.FicAlb1.5.dna.toplevel.fa.gz https://ftp.ensembl.org/pub/release-110/fasta/ficedula_albicollis/dna/Ficedula_albicollis.FicAlb1.5.dna.toplevel.fa.gz
-gunzip Ficedula_albicollis.FicAlb1.5.dna.toplevel.fa.gz
+# Gallus gallus
+esearch -db nucleotide -query 'Gallus gallus CYTB' | efetch -format fasta > Gallus_gallus_cytb.fasta
 
-wget -O Serinus_canaria.SCA1.dna.toplevel.fa.gz https://ftp.ensembl.org/pub/release-110/fasta/serinus_canaria/dna/Serinus_canaria.SCA1.dna.toplevel.fa.gz
-gunzip Serinus_canaria.SCA1.dna.toplevel.fa.gz
+# Serinus canaria
+esearch -db nucleotide -query 'Serinus canaria CYTB' | efetch -format fasta > Serinus_canaria_cytb.fasta
 
-wget -O Struthio_camelus_australis.ASM69896v1.dna.toplevel.fa.gz https://ftp.ensembl.org/pub/release-110/fasta/struthio_camelus_australis/dna/Struthio_camelus_australis.ASM69896v1.dna.toplevel.fa.gz
-gunzip Struthio_camelus_australis.ASM69896v1.dna.toplevel.fa.gz
+# Struthio camelus
+esearch -db nucleotide -query 'Struthio camelus CYTB' | efetch -format fasta > Struthio_camelus_cytb.fasta
 
-
-# Unwrap the DNA sequences for each species
-
-awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Anas_platyrhynchos_platyrhynchos.CAU_duck1.0.dna.toplevel.fa > Anas_platyrhynchos_platyrhynchos.CAU_duck1.0.dna.toplevel_unwrap.fa
-
-awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Cyanistes_caeruleus.cyaCae2.dna.toplevel.fa > Cyanistes_caeruleus.cyaCae2.dna.toplevel_unwrap.fa
-
-awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Ficedula_albicollis.FicAlb1.5.dna.toplevel.fa > Ficedula_albicollis.FicAlb1.5.dna.toplevel_unwrap.fa
-
-awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Serinus_canaria.SCA1.dna.toplevel.fa > Serinus_canaria.SCA1.dna.toplevel_unwrap.fa
-
-awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Struthio_camelus_australis.ASM69896v1.dna.toplevel.fa > Struthio_camelus_australis.ASM69896v1.dna.toplevel_unwrap.fa
 
 
 ```
 - alignment: # Multiple Sequence Alignment (MSA)
 
-To align t gene sequences, the MAFFT tool was used. The following command was executed in the terminal:
+To align cytb gene sequences, the MAFFT tool was used. The following command was executed in the terminal:
 
 ```
-mafft --auto Anas_platyrhynchos_platyrhynchos.CAU_duck1.0.dna.toplevel_unwrap.fa > Anas_platyrhynchos_platyrhynchos.CAU_duck1.0.dna.toplevel_aligned.fa
+mafft --auto Anas_platyrhynchos_cytb_selected.fasta > Anas_platyrhynchos_cytb_selected_aligned.fasta
+mafft --auto Gallus_gallus_cytb_selected.fasta > Gallus_gallus_cytb_selected_aligned.fasta
+mafft --auto Serinus_canaria_cytb_selected.fasta > Serinus_canaria_cytb_selected_aligned.fasta
+mafft --auto Ficedula_albicollis_cytb_selected.fasta > Ficedula_albicollis_cytb_selected_aligned.fasta
+mafft --auto Struthio_camelus_cytb_selected.fasta > Struthio_camelus_cytb_selected_aligned.fasta
 
-mafft --auto Cyanistes_caeruleus.cyaCae2.dna.toplevel_unwrap.fa > Cyanistes_caeruleus.cyaCae2.dna.toplevel_aligned.fa
-
-mafft --auto Ficedula_albicollis.FicAlb1.5.dna.toplevel_unwrap.fa > Ficedula_albicollis.FicAlb1.5.dna.toplevel_aligned.fa
-
-mafft --auto Serinus_canaria.SCA1.dna.toplevel_unwrap.fa > Serinus_canaria.SCA1.dna.toplevel_aligned.fa
-
-mafft --auto Struthio_camelus_australis.ASM69896v1.dna.toplevel_unwrap.fa > Struthio_camelus_australis.ASM69896v1.dna.toplevel_aligned.fa
 ```
 
 IQTREE command: 
 
 ```
-cd birdfinal
+cd bird3
 
-# Run iqtree for all species
-for file in *aligned.fa; do
-  iqtree -s "$file" -m LG -bb 1000 -pre "${file%.*}_tree"
-done
+cat Anas_platyrhynchos_cytb_selected.fasta \
+    Ficedula_albicollis_cytb_selected.fasta \
+    Gallus_gallus_cytb_selected.fasta \
+    Serinus_canaria_cytb_selected.fasta \
+    Struthio_camelus_cytb_selected.fasta > all_cytb.fasta
+
+
+iqtree -s all_cytb_aligned.fasta -m LG -bb 1000 -pre cytb_tree
+
+
 ```
 
 - `phylogenetic_tree.R`: R script for constructing the phylogenetic tree.
