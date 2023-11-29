@@ -7,7 +7,7 @@ This project explores the evolutionary relationships among different bird specie
 ## Progress
 - **Data Collection:** Collected CYTB gene bird sequences
 - **Alignment:** Used `mafft` for aligning the sequences. IQTREE to generate the tree 
-- **Phylogenetic Tree Construction:** Utilized the `ape` and `ggtree` packages in R to construct a family tree.
+- **Phylogenetic Tree Construction:** Utilized the `ggtree` package in R to construct a family tree.
 
 ## Scripts
 ```
